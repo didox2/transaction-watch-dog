@@ -1,67 +1,48 @@
-# Transaction Watch Dog
+# Transaction watch dog
 
-The goal is to monitor the Ethereum blockchain and make the right decision based on a given rule set.
+Ruling system that monitors the Ethereum blockchain and make the right decision based on a given rule set
 
-## Description
+## Quick start
 
-### Problem:
-Design a Ruling system that will monitor and watch all Ethereum transaction that will store and filter data based on predefined dynamic configuration.
-* Create an API endpoint that will support basic CRUD operations for the Dynamic Configuration.
-    * On restart the previous configuration should be used.
-    * ***Bonus*** Hot load the new configuration without the need of restart.
-* We want to monitor all Ethereum transactions.
-* When we detect a new Transaction that matches any of the Configurations we need to store it in a Database.
-* Each Database entry should have a way to identify the Configuration that triggered it.
-* We should use a Ethereum Native Node Provider for example _Infura_
-* ***Bonus*** Have additional Configuration to parse Transactions with delayed amount of Blocks.
-* ***Bonus*** Have a decent logging for tracking purposes.
+1. Clone the repository with `git clone --depth=1 https://github.com/didox2/transaction-watch-dog`
+2. Setup the .env file with your variables.
+3. Install the dependencies with npm
+4. Create the development and test databases you have setup on `config/database.js`
+5. Add tools to create and update db `npm install --save -g pgtools sequelize-cli`
+6. Create db running `createdbjs transaction-watch-dog --user=[db_username] --password=[db_password]`
+7. Run the database migrations with `npm run sequelize db:migrate`
+8. Add some seed data to the development database with `npm run sequelize db:seed:all`
+9. Run the application in development mode with `npm run dev`
+10. Access `http://localhost:3000/api/transactions` or `http://localhost:3000/api/rules`
 
-### What we are looking for
-* Use of the proper tools for the proper task
-* Clean Code
-* Code Architecture/Structure
-* Database Segregation
-* Other Design Principles
+## Scripts
 
-### What can be used:
-* JS
-* Ethers / Web3
-* Infura
-* Any other library considered necessary
+- `dev`: Run the application in development mode
+- `start` Run the application in production mode (prefer not to do that in development) 
+- `test`: Run the test suite
+- `test:unit`: Run only the unit tests
+- `test:features`: Run only the features tests
+- `coverage`: Run only the unit tests and generate code coverage for them, the output will be on `coverage` folder
+- `lint`: Lint the codebase
+- `sequelize`: Alias to the [Sequelize CLI](https://github.com/sequelize/cli)
+- `console`: Open the built-in console, you can access the DI container through the `container` variable once it's open, the console is promise-friendly.
 
-### Suggested Packages
-* Sequelize
-* Axios
-* Awilix
+## Tech
 
-### Submissions
-
-* Please upload your complete source code to a GitHub repo.
-* README should contain information of how to Run the Project
-
-## Getting Started
-
-### Dependencies
-
-* Installed Node on your OS
-
-### Installing
-
-* Clone the repo locally
-* Run npm install
-* Run npm start
-
-### Executing program
-
-* TODO
-
-## Authors
-
-Contributors names and contact info
-
-Ditmar Vladislavov
-
-## Version History
-
-* 0.1
-    * Initial Release
+- [Node v7.6+](http://nodejs.org/)
+- [Express](https://npmjs.com/package/express)
+- [Sequelize](https://www.npmjs.com/package/sequelize)
+- [Awilix](https://www.npmjs.com/package/awilix)
+- [Structure](https://www.npmjs.com/package/structure)
+- [HTTP Status](https://www.npmjs.com/package/http-status)
+- [Log4js](https://www.npmjs.com/package/log4js)
+- [Morgan](https://www.npmjs.com/package/morgan)
+- [Express Status Monitor](https://www.npmjs.com/package/express-status-monitor)
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [PM2](https://www.npmjs.com/package/pm2)
+- [Mocha](https://www.npmjs.com/package/mocha)
+- [Chai](https://www.npmjs.com/package/chai)
+- [FactoryGirl](https://www.npmjs.com/package/factory-girl)
+- [Istanbul](https://www.npmjs.com/package/istanbul) + [NYC](https://www.npmjs.com/package/nyc)
+- [ESLint](https://www.npmjs.com/package/eslint)
+- [Axios](https://www.npmjs.com/package/axios)

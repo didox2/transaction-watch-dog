@@ -1,20 +1,26 @@
 # Logs
-logs
+logs/
 *.log
-npm-debug.log*
 
-# Dependency directories
+# Node
 node_modules/
 
-# Optional npm cache directory
-.npm
+# Project specific
+config/database.js
 
-# Optional eslint cache
-.eslintcache
+# Unit test / coverage reports
+coverage/
+.nyc_output
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+# OS auto-generated files
+.DS_Store
+._*
+
+
+# Vim
+*~
+*.swp
+*.swo
+
+# IDE files
+.idea/
